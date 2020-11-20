@@ -135,7 +135,7 @@ namespace CafeBoost.UI
             catch (Exception)
             {
 
-                throw;
+               
             }
         }
 
