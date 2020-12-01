@@ -18,6 +18,8 @@ namespace CafeBoost.UI
         {
             db = cafeBoostContext;
             InitializeComponent();
+            dgvSiparisDetaylar.AutoGenerateColumns = false;
+            dgvSiparisler.AutoGenerateColumns = false;
             dgvSiparisler.DataSource = db.Siparisler.Where(x=>x.Durum != SiparisDurum.Aktif).ToList();
         }
 
@@ -26,7 +28,7 @@ namespace CafeBoost.UI
             if (dgvSiparisler.SelectedRows.Count > 0)
             {
                 Siparis seciliSiparis = (Siparis)dgvSiparisler.SelectedRows[0].DataBoundItem;
-                dgvSiparisDetaylar.DataSource = seciliSiparis.SiparisDetaylar;
+                dgvSiparisDetaylar.DataSource = seciliSiparis.SiparisDetaylar.ToList();
             }
         }
     }
